@@ -8,12 +8,12 @@ terraform {
 }
 provider "google" {
   credentials = "../docker/mage/google-cred.json"
-  project     = "gothic-sylph-387906"
+  project     = "arctic-surf-456413-f0"
 
 }
 
 resource "google_storage_bucket" "gcp-storage" {
-  name          = var.gcs_bucket_name
+  name          = "swe5003"
   location = var.location
   force_destroy = true
 
