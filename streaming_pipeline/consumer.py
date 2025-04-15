@@ -1,7 +1,7 @@
 from confluent_kafka import Consumer, KafkaError
 
 # Kafka consumer configuration
-conf = {'bootstrap.servers': "localhost:9092", 'group.id': "ashraf.de-zoomcamp-form-data", 'auto.offset.reset': 'earliest'}
+conf = {'bootstrap.servers': "localhost:9092", 'group.id': "swe5003", 'auto.offset.reset': 'earliest'}
 consumer = Consumer(conf)
 
 # # Subscribe to the Kafka topic
@@ -36,7 +36,7 @@ from confluent_kafka import Consumer, KafkaError
 import json
 from config import BOOTSTRAP_SERVERS,TOPIC
 def consume_data(bootstrap_servers, topic):
-    conf = {'bootstrap.servers': bootstrap_servers, 'group.id': 'ashraf-supply-chain', 'auto.offset.reset': 'earliest'}
+    conf = {'bootstrap.servers': bootstrap_servers, 'group.id': 'swe5003', 'auto.offset.reset': 'earliest'}
     consumer = Consumer(conf)
     consumer.subscribe([topic])
 

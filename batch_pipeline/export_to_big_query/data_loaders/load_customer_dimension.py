@@ -30,11 +30,11 @@ def list_files_in_gcs_bucket(bucket_name, service_account_key_path):
     return file_names
 
 # Load configuration from YAML file
-config = ConfigFileLoader('./ashraf-magic/io_config.yaml', 'default')
+config = ConfigFileLoader('./swe5003/io_config.yaml', 'default')
 gcs = config[ConfigKey.GOOGLE_SERVICE_ACC_KEY_FILEPATH]
 
 # Define bucket name
-bucket_name = 'supply-chain-data-terraform'
+bucket_name = 'swe5003'
 
 # List all file names in the bucket
 file_names = list_files_in_gcs_bucket(bucket_name, gcs)
