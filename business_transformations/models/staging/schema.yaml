@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: staging
-    database: gothic-sylph-387906
+    database: arctic-surf-456413-f0
     schema: supply_chain_data
     tables:
       - name: dim_customer
