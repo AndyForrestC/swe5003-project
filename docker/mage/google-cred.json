@@ -1,0 +1,14 @@
+{
+    "type": "service_account",
+    "project_id": "arctic-surf-456413-f0",
+    "private_key_id": "301471e2a1be84a8e476f8616cc1d6c9674fe199",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCyQZThBSlkKLyG\n2EfYE22++aBCZH2x/Kf//CtpFrq1E/G9RIk/q2JfRjp/9qEmE/mISIfb3xufrzUO\n/KJp43w1lwsEg9TF8js6QGLRYsakvHhUpEEHhMuMvCK3PiSW8HPUOvevvGAXm1LS\nF3wKCojEE0gwKfrREAgut7aAvm0wIsRNcn78Nm2A9DHDXLc+HKCU5wQSUx+KObNL\nqjvTYZZsFUZIWrQ5J4K7MDgTfsckQ/5tiwn3xUK2UGe574Gg/lGthoWiRirxvHnf\nKrDH6s99RjCvb5bCDLwf3mdtGE+cKKIMjGq/cDHD+vG3CrMFyEzwS4/hBpYgBU27\nOhpo4qa/AgMBAAECggEABVteL4L5svZccAr44b/3uNkEnWoqstoebF12KoLR2pY+\nWgtAuqaaXrWcFXNidWP9SECxwIRMbriTth8WfGsnNO8UmC6kCszURdRgg91djd7S\nGO0UvTaa7WBMBMi7zcNtH7Aj+GaHVr5Gt2SYSC733DieH0BrtrOuI0VHGUhfvKYJ\n7rePo/P+rKb6x9VMj18J+pBMmnt3bPVfJasDIA8dcBDo5l3GYTxgjN3Xc6avDi8x\n200tdoT5TSeMbmgY14eTOSxM59jbohI+O+c21/EMxIkk9RODIHKjrRT+XY0cYywl\n3eDRkuC2W4TgBdYv0l+Gq9ul2Gt3QZSwuqdmX1DbqQKBgQDp7DisFcgLl0Y5Cpvt\n6EMXl5Dcxon6Em3AEajRCjBYtJcK22Bjc7RK01DVYjOsycughFkMrDMELJ+UR588\n5PP5mDv9Ju0FVKyXHFMWLnxJuoj9mckFmJYTK4cf59izlvn0WX/Mq3UUm3sGRF4i\ndkMLaML6OnpJyvdolOpscVLZZwKBgQDDFGg++n7wSgqXttukRK3hbd1xerNBnm2B\nGNbf9KPixUqA7ihMFyztARprytE3vxvhEEAfhRi79DsNCNRMUnDNXCDdFMILj7Ci\nVf0i/tTr2cHhO2oZUtQJPhVzQPIl5QHUXaB6gJvfD8XYP3+zQhImo1+MemDtHTve\nWIhZMMn46QKBgQDis7YwwGNBKHg769Y2ePQctx0Deb5ahuWqUPMEtBUqwsnnEbiW\naZn/MlCSnDtsZ51akSkkKPbAQubc85SVlWYFLM5mhwUKN4eUYzT6uE5nvcnpzNKP\nA9Pd/D9WYoEXe2f+sYYzuq8bK5vM9REt4OMU+ZCMpYPCZFvmFPwj4KfkXQKBgA2l\n2tk1GzZiZ7VPhLRMXcHcttZemDXqCI00mKvYaLLPzLOSdd1E7c6y+g86hEKbKy8m\nvOW3oRBdONhjmr6wMdYcMOxmrGC0r83bqDcPjwPlGyxPxM96vPzcjBGhJI/EIsmh\ntz16y+ziJJxJbPy0jaKIYYHpeeh82BhpJzjeMfMpAoGBAL/QXPAm0cvF4xL4z0WW\nzveJ/CwtDMPXzo9cgQvgdnSBUI/54JGsqvmSdKnVcUMEI6iu32TR7OWx7UQVpXPE\n0JHit/2LrV9JM5+167hAHhH6bcegRruhDkZYUydFvkyFVIPm3lQwG7YGmQbhcHFo\n25gonMfm/1jiCIqXpxYeGvb3\n-----END PRIVATE KEY-----\n",
+    "client_email": "swe5003bigdata@arctic-surf-456413-f0.iam.gserviceaccount.com",
+    "client_id": "108503627534334339394",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/swe5003bigdata%40arctic-surf-456413-f0.iam.gserviceaccount.com",
+    "universe_domain": "googleapis.com"
+  }
+  

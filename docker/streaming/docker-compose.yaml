@@ -1,7 +1,7 @@
 version: '3.6'
 networks:
   default:
-    name: ashraf-magic-network
+    name: swe5003-network
     external: true
 services:
   stream:

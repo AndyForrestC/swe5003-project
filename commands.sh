@@ -1,4 +1,4 @@
-PROJECT_NAME='ashraf-magic'
+PROJECT_NAME='swe5003'
 EXPORT_TO_BIGQUERY_PIPELINE_UUID='94ab2c7a2aa24bde8e148ef84c88a10f'
 # Check if the network exists; if not, create it
 if ! docker network inspect ${PROJECT_NAME}-network &>/dev/null; then
@@ -14,7 +14,7 @@ stream-data() {
 
 # Function to start Kafka
 start-kafka() {
-	docker-compose -f ./docker/kafka/docker-compose.yml up -d
+	docker-compose -f ./docker/kafka/docker-compose.yml --env-file ./docker/kafka/.env up -d
 }
 
 # Function to start Spark
@@ -26,19 +26,19 @@ start-spark() {
 	docker-compose -f ./docker/spark/docker-compose.yml up -d
 }
 
-# Function to start Mage
+# Function to start Magestart-streaming-pipeline
 start-mage() {
-   docker-compose -f ./docker/mage/docker-compose.yml up -d
+   docker-compose -f ./docker/mage/docker-compose.yml --env-file ./docker/mage/.env up -d
    sleep 5
    sudo cp ./streaming_pipeline/kafka_to_gcs_streaming/kafka_to_gcs.yaml ./docker/mage/${PROJECT_NAME}/data_exporters/
    sudo cp ./streaming_pipeline/kafka_to_gcs_streaming/consume_from_kafka.yaml ./docker/mage/${PROJECT_NAME}/data_loaders/
-   sudo mkdir ./docker/mage/${PROJECT_NAME}/pipelines/kafka_to_gcs_streaming
+   sudo mkdir -p ./docker/mage/${PROJECT_NAME}/pipelines/kafka_to_gcs_streaming
    sudo cp ./streaming_pipeline/kafka_to_gcs_streaming/metadata.yaml ./docker/mage/${PROJECT_NAME}/pipelines/kafka_to_gcs_streaming/
    sudo touch ./docker/mage/${PROJECT_NAME}/pipelines/kafka_to_gcs_streaming/__init__.py
 
    sudo cp ./batch_pipeline/export_to_big_query/data_exporters/* ./docker/mage/${PROJECT_NAME}/data_exporters/
    sudo cp ./batch_pipeline/export_to_big_query/data_loaders/* ./docker/mage/${PROJECT_NAME}/data_loaders/
-   sudo mkdir ./docker/mage/${PROJECT_NAME}/pipelines/export_to_big_query
+   sudo mkdir -p ./docker/mage/${PROJECT_NAME}/pipelines/export_to_big_query
    sudo cp ./batch_pipeline/export_to_big_query/*.yaml ./docker/mage/${PROJECT_NAME}/pipelines/export_to_big_query/
    sudo touch ./docker/mage/${PROJECT_NAME}/pipelines/export_to_big_query/__init__.py
 }
@@ -100,7 +100,7 @@ olap-transformation-pipeline(){
 }
 
 gcs-to-bigquery-pipeline(){
-    curl -X POST http://127.0.0.1:6789/api/pipeline_schedules/2/pipeline_runs/f0607c7c9c0241208bf779edfe0c5f9d \
+    curl -X POST http://localhost:6789/api/pipeline_schedules/1/pipeline_runs/00e78f98293945ec9af120891c006992 \
   --header 'Content-Type: application/json' \
   --data '
     {

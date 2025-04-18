@@ -30,17 +30,17 @@ def list_files_in_gcs_bucket(bucket_name, service_account_key_path):
     return file_names
 
 # Load configuration from YAML file
-config = ConfigFileLoader('./ashraf-magic/io_config.yaml', 'default')
+config = ConfigFileLoader('./swe5003/io_config.yaml', 'default')
 gcs = config[ConfigKey.GOOGLE_SERVICE_ACC_KEY_FILEPATH]
 
 # Define bucket name
-bucket_name = 'supply-chain-data-terraform'
+bucket_name = 'swe5003'
 
 # List all file names in the bucket
 file_names = list_files_in_gcs_bucket(bucket_name, gcs)
 
 # Filter file names for customer dimension
-customer_dimension = [file_name for file_name in file_names if file_name.startswith('transformed_data/product_dimension.parquet/part-')]
+customer_dimension = [file_name for file_name in file_names if file_name.startswith('transformed_data/department_dimension.parquet/part-')]
 
 @data_loader
 def load_from_google_cloud_storage(*args, **kwargs):

@@ -16,6 +16,6 @@ variable "gcs_storage_class" {
 
 variable "gcs_bucket_name" {
   description = "GCS storage bucket name"
-  default = "supply-chain-data-terraform"
+  default = "swe5003"
 }
 

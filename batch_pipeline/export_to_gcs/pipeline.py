@@ -13,7 +13,7 @@ conf = SparkConf() \
     .set("spark.jars", jar_file_path) \
     .set("spark.hadoop.google.cloud.auth.service.account.enable", "true") \
     .set("spark.hadoop.google.cloud.auth.service.account.json.keyfile", credentials_path) \
-    .set("spark.hadoop.google.cloud.project.id", "gothic-sylph-387906")
+    .set("spark.hadoop.google.cloud.project.id", "arctic-surf-456413-f0")
 
 # Create Spark Context
 sc = SparkContext(conf=conf)
