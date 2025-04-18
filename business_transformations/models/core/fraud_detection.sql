@@ -1,19 +1,20 @@
 {{
     config(
         materialized='table',
-        partition_by='order_customer_id',  -- Partitioning by 'order_customer_id' column
-        cluster_by='order_customer_id'
+        partition_by={"field": "order_customer_id", "data_type": "integer"}
     )
 }}
 
-with fraud_detection AS (
+WITH fraud_detection AS (
     SELECT
         order_customer_id,
         AVG(order_item_total) AS avg_order_total,
         COUNT(*) AS num_orders
     FROM {{ ref('dim_order') }}
+    WHERE order_item_total > 0
+      AND order_customer_id IS NOT NULL
     GROUP BY order_customer_id
-    ORDER BY avg_order_total DESC
 )
-
-select * from fraud_detection
+SELECT *
+FROM fraud_detection
+ORDER BY avg_order_total DESC

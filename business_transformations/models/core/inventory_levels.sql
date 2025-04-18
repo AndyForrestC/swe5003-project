@@ -1,9 +1,7 @@
 {{
     config(
         materialized='table',
-        partition_by='order_date',  -- Partitioning by 'order_date' column
-        cluster_by='order_date'  -- Clustering by 'order_date' column
-
+        partition_by={"field": "order_date", "data_type": "string"}
     )
 }}
 WITH month_names AS (
@@ -46,7 +44,7 @@ inventory_turnover AS (
 ),
 -- Inventory aging analysis
 inventory_aging AS (
-    SELECT 
+    SELECT DISTINCT
         order_date,
         CASE
            WHEN TIMESTAMP_DIFF('2018-01-01', PARSE_TIMESTAMP('%m/%d/%Y %H:%M', order_date), DAY) <= 30 THEN '0-30 days'
@@ -62,10 +60,10 @@ inventory_aging AS (
 SELECT
     inventory_turnover.year,
     month_names.month_name,
-    total_inventory_value.total_inventory_value,
-    inventory_turnover.inventory_turnover_ratio,
+    SUM(total_inventory_value.total_inventory_value) AS total_inventory_value,
+    AVG(inventory_turnover.inventory_turnover_ratio) AS inventory_turnover_ratio,
     inventory_aging.age_range,
-    inventory_aging.inventory_value
+    SUM(inventory_aging.inventory_value) AS inventory_value
 FROM 
     total_inventory_value
 JOIN 
@@ -74,4 +72,11 @@ JOIN
     inventory_turnover ON total_inventory_value.month = inventory_turnover.month_num
 JOIN
     inventory_aging ON total_inventory_value.month = EXTRACT(MONTH FROM DATE_TRUNC(PARSE_TIMESTAMP('%m/%d/%Y %H:%M', inventory_aging.order_date), MONTH))
-order by inventory_turnover.year,inventory_turnover.month_num
+GROUP BY 
+    inventory_turnover.year, 
+    inventory_turnover.month_num,
+    month_names.month_name, 
+    inventory_aging.age_range
+ORDER BY 
+    inventory_turnover.year, 
+    inventory_turnover.month_num

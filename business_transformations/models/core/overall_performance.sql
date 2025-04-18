@@ -1,7 +1,7 @@
 {{
     config(
         materialized='table',
-        partition_by='year, month'
+        partition_by={"field": "year", "data_type": "integer"}
     )
 }}
 
@@ -49,9 +49,10 @@ SELECT
 FROM 
     overall_sales_performance os
 JOIN 
-    profit_margin_analysis pma ON os.month = pma.month
+    profit_margin_analysis pma ON os.year = pma.year AND os.month = pma.month -- 修复 JOIN 条件
 JOIN
-    month_names m on os.month=m.month_num
+    month_names m ON os.month = m.month_num
 CROSS JOIN 
     operational_efficiency_metrics oem
-order by os.year,m.month_num
+ORDER BY 
+    os.year, m.month_num

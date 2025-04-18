@@ -6,10 +6,10 @@ DBT (Data Build Tool) is a powerful data transformation tool used to convert Sil
 
 Using python method
 - `pip3 install dbt --no-cache-dir` then
--  Download your cloud-configuration from the dbt-cloud Project page. For Demo purposes, I have provided my dbt_project.yaml file in the `business_transformations` folder
+-  Download your cloud-configuration from the dbt-cloud Project page. For Demo purposes, I have provided my dbt_cloud.yml file in the `business_transformations` folder
 - Use these commands
  - `mkdir ~/.dbt`
- - `cp business_transformations/dbt_project.yaml ~/.dbt/` .
+ - `cp dbt_cloud.yml ~/.dbt/` .
 - Check using `dbt compile`
 - Run the models using `dbt run command`
 - To run specific model `dbt run --select {model_name}`
