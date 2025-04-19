@@ -1,8 +1,8 @@
 version: '3'
 networks:
-  default:
-    name: ${PROJECT_NAME}-network
-    external: true
+  metabase_net: # 不使用 default
+    external:
+      name: ${PROJECT_NAME}-network
 services:
   metabase:
     image: metabase/metabase
@@ -11,3 +11,5 @@ services:
       - .env
     ports:
       - ${METABASE_PORT}:3000
+    networks:
+      - metabase_net          # ← 指向下面这个网络

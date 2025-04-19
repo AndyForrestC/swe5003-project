@@ -49,8 +49,14 @@ start-postgres() {
 }
 
 # Function to start Metabase
-start-metabase() {
-   docker-compose -f ./docker/metabase/docker-compose.yml up -d
+start-metabase () {
+  (
+    # 1. 真正进入 docker-compose.yml 与 .env 所在目录
+    cd ./docker/metabase || { echo "❌ 目录不存在"; return 1; }
+
+    # 2. 启动（v1.25 不支持 --env-file，所以直接在目录里运行）
+    docker-compose up -d
+  )
 }
 
 # Function to stop Kafka
