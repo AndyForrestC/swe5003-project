@@ -2,8 +2,8 @@ version: 2
 
 sources:
   - name: staging
-    database: gothic-sylph-387906
-    schema: supply_chain_data
+    database: arctic-surf-456413-f0
+    schema: terraform_bigquery
     tables:
       - name: dim_customer
         columns:
